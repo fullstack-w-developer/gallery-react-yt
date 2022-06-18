@@ -16,8 +16,13 @@ function App() {
       <Router>
         <Header />
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="photo/:id" element={<PhotoById />} />
+          <Route path="gallery-react-yt">
+            <Route index element={<Home />} />
+            <Route
+              path="photo/:id"
+              element={<PhotoById />}
+            />
+          </Route>
         </Routes>
       </Router>
     </AlbumId>
