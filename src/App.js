@@ -1,24 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
-
+import axios from "axios";
+import { useEffect, useState } from "react";
+import "./App.css";
+import Home from "./pages/Home";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+} from "react-router-dom";
+import PhotoById from "./pages/PhotoById";
+import Header from "./components/Header";
+import AlbumId from "./context/AlbumId";
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AlbumId>
+      <Router>
+        <Header />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="photo/:id" element={<PhotoById />} />
+        </Routes>
+      </Router>
+    </AlbumId>
   );
 }
 
